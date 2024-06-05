@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"James D. Forrester"
+		]
+	},
+	"wikifunctionsclient-desc": "Wikifunctions client extension to provide a way to call Wikifunctions functions inside wikitext.",
+	"wikifunctionsclient-functioncall-error": "Function call error: $1",
+	"wikifunctionsclient-functioncall-error-category": "Pages with errored Wikifunctions calls",
+	"wikifunctionsclient-functioncall-error-category-desc": "Pages with calls to Wikifunctions that result in a general error",
+	"wikifunctionsclient-functioncall-error-invalid-zobject": "Function call error: the item '$1' isn't a valid Object, so can't be called",
+	"wikifunctionsclient-functioncall-error-invalid-zobject-category": "Pages with Wikifunctions calls to invalid Objects",
+	"wikifunctionsclient-functioncall-error-invalid-zobject-category-desc": "Pages with attempted calls to Wikifunctions with a invalid Object",
+	"wikifunctionsclient-functioncall-error-nonfunction": "Function call error: the Object '$1' isn't a Function, so can't be called",
+	"wikifunctionsclient-functioncall-error-nonfunction-category": "Pages with Wikifunctions calls to non-function Objects",
+	"wikifunctionsclient-functioncall-error-nonfunction-category-desc": "Pages with attempted calls to Wikifunctions with a non-function Object",
+	"wikifunctionsclient-functioncall-error-nonstringinput": "Function call error: the Function '$1' takes a '$3' instead of a string as input '$2', and so cannot be called",
+	"wikifunctionsclient-functioncall-error-nonstringinput-category": "Pages with Wikifunctions calls using non-string Objects",
+	"wikifunctionsclient-functioncall-error-nonstringinput-category-desc": "Pages with attempted calls to Wikifunctions with a Function that doesn't take a string",
+	"wikifunctionsclient-functioncall-error-nonstringoutput": "Function call error: the Function '$1' doesn't output a string that can be shown in a page",
+	"wikifunctionsclient-functioncall-error-nonstringoutput-category": "Pages with Wikifunctions calls creating non-string Objects",
+	"wikifunctionsclient-functioncall-error-nonstringoutput-category-desc": "Pages with attempted calls to Wikifunctions with a Function that doesn't return a string",
+	"wikifunctionsclient-functioncall-error-unknown": "Function call error: '$1' isn't a known Object",
+	"wikifunctionsclient-functioncall-error-unknown-category": "Pages with Wikifunctions calls to unknown Objects",
+	"wikifunctionsclient-functioncall-error-unknown-category-desc": "Pages with attempted calls to Wikifunctions that request an unknown Object"
+}

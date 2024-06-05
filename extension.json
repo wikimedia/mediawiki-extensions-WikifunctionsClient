@@ -1,0 +1,61 @@
+{
+	"name": "WikifunctionsClient",
+	"author": [
+		"James D. Forrester"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:WikifunctionsClient",
+	"descriptionmsg": "wikifunctionsclient-desc",
+	"license-name": "MIT",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.43.0"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\WikifunctionsClient\\": "src/"
+	},
+	"config": {
+		"WikifunctionsClientEnableParserFunction": {
+			"description": "Enable the {{#function:…}} extension.",
+			"value": false
+		},
+		"WikifunctionsClientTargetAPI": {
+			"description": "API to target to make function calls (to allow testing against non-standard wikis).",
+			"value": "http://www.wikifunctions.org/"
+		}
+	},
+	"HookHandlers": {
+		"WikifunctionsClientHooks": {
+			"class": "MediaWiki\\Extension\\WikifunctionsClient\\Hooks"
+		}
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "WikifunctionsClientHooks"
+	},
+	"MessagesDirs": {
+		"WikifunctionsClient": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"WikifunctionsClientMagic": "WikifunctionsClient.i18n.magic.php"
+	},
+	"ResourceModules": {
+		"ext.wikifunctionsClient": {
+			"localBasePath": "resources/ext.wikifunctionsClient",
+			"remoteExtPath": "WikifunctionsClient/resources/ext.wikifunctionsClient",
+			"dependencies": [],
+			"styles": [],
+			"packageFiles": [
+				"init.js"
+			],
+			"messages": []
+		}
+	},
+	"TrackingCategories": [
+		"wikifunctionsclient-functioncall-error-category",
+		"wikifunctionsclient-functioncall-error-unknown-category",
+		"wikifunctionsclient-functioncall-error-nonfunction-category",
+		"wikifunctionsclient-functioncall-error-nonstring-category"
+	],
+	"manifest_version": 2
+}
