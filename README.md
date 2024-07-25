@@ -2,6 +2,16 @@
 
 The Wikifunctions Client extension will allow Wikimedia wikis to use a wikitext parser function to call evaluation of functions on Wikifunctions, which are managed by the WikiLambda extension.
 
+## Installation
+
+Inside your MediaWiki checkout:
+
+
+```bash
+git clone --recurse-submodules --remote-submodules https://gerrit.wikimedia.org/r/mediawiki/extensions/WikifunctionsClient extensions/WikifunctionsClient
+echo "wfLoadExtension( 'WikifunctionsClient' );\n\$wgWikifunctionsClientEnableParserFunction = true;" >> LocalSettings.php
+```
+
 ## Using the wikitext parser function
 
 WikifunctionsClient provides the `{{#function:…}}` parser function, which lets you embed function calls inside wikitext documents which are then resolved at parse time.
