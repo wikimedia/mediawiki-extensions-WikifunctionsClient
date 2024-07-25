@@ -11,8 +11,11 @@
 
 namespace MediaWiki\Extension\WikifunctionsClient;
 
+// TODO (T371027): We shouldn't have cross-extension dependencies.
 use MediaWiki\Extension\WikiLambda\ActionAPI\ApiFunctionCall;
 use MediaWiki\Extension\WikiLambda\Registry\ZTypeRegistry;
+use MediaWiki\Extension\WikiLambda\WikiLambdaServices;
+use MediaWiki\Extension\WikiLambda\ZErrorException;
 use MediaWiki\Extension\WikiLambda\ZObjects\ZFunctionCall;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
@@ -56,6 +59,7 @@ class Hooks implements
 
 		$target = $cleanedArgs[0];
 
+		// TODO (T371027): We shouldn't have the logic for what functions exist here, but in WikiLambda.
 		$zObjectStore = WikiLambdaServices::getZObjectStore();
 		$targetTitle = Title::newFromText( $target, NS_MAIN );
 		if ( !( $targetTitle->exists() ) ) {
@@ -162,6 +166,7 @@ class Hooks implements
 
 		$arguments = array_slice( $cleanedArgs, 1 );
 
+		// TODO (T371027): We shouldn't have the logic for making the call here, but in WikiLambda.
 		$call = ( new ZFunctionCall( $target, $arguments ) )->getSerialized();
 
 		// TODO (T362254): We want a much finer control on execution time than this.
