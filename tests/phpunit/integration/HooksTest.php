@@ -20,8 +20,8 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 
 	public function testOnParserFirstCallInit() {
 		// Force-enable our code
-		$this->setMwGlobals( [
-			'wgWikifunctionsClientEnableParserFunction' => true,
+		$this->overrideConfigValues( [
+			'WikifunctionsClientEnableParserFunction' => true,
 		] );
 
 		$parser = $this->createMock( Parser::class );
