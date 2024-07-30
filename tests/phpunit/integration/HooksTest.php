@@ -29,7 +29,9 @@ class HooksTest extends MediaWikiIntegrationTestCase {
 			->method( 'setFunctionHook' )
 			->with( 'function', $this->isType( 'callable' ) );
 
-		$hooks = new \MediaWiki\Extension\WikifunctionsClient\Hooks();
+		$hooks = new \MediaWiki\Extension\WikifunctionsClient\Hooks(
+			$this->getServiceContainer()->getMainConfig()
+		);
 		$hooks->onParserFirstCallInit( $parser );
 	}
 }

@@ -25,7 +25,10 @@
 	},
 	"HookHandlers": {
 		"WikifunctionsClientHooks": {
-			"class": "MediaWiki\\Extension\\WikifunctionsClient\\Hooks"
+			"class": "MediaWiki\\Extension\\WikifunctionsClient\\Hooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {

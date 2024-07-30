@@ -11,6 +11,7 @@
 
 namespace MediaWiki\Extension\WikifunctionsClient;
 
+use MediaWiki\Config\Config;
 // TODO (T371027): We shouldn't have cross-extension dependencies.
 use MediaWiki\Extension\WikiLambda\ActionAPI\ApiFunctionCall;
 use MediaWiki\Extension\WikiLambda\Registry\ZTypeRegistry;
@@ -18,7 +19,6 @@ use MediaWiki\Extension\WikiLambda\WikiLambdaServices;
 use MediaWiki\Extension\WikiLambda\ZErrorException;
 use MediaWiki\Extension\WikiLambda\ZObjects\ZFunctionCall;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Title\Title;
@@ -27,6 +27,13 @@ use PPFrame;
 class Hooks implements
 	\MediaWiki\Hook\ParserFirstCallInitHook
 {
+	private Config $config;
+
+	public function __construct(
+		Config $config
+	) {
+		$this->config = $config;
+	}
 
 	/**
 	 * Register {{#function:…}} as a wikitext parser function to trigger function evaluation.
@@ -36,8 +43,7 @@ class Hooks implements
 	 * @param Parser $parser
 	 */
 	public function onParserFirstCallInit( $parser ) {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-		if ( $config->get( 'WikifunctionsClientEnableParserFunction' ) ) {
+		if ( $this->config->get( 'WikifunctionsClientEnableParserFunction' ) ) {
 			$parser->setFunctionHook( 'function', [ self::class, 'parserFunctionCallback' ], Parser::SFH_OBJECT_ARGS );
 		}
 	}
